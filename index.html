@@ -237,5 +237,40 @@ if("speechSynthesis" in window){
 }
 render();
 </script>
+
+  <div id="visit-counter" style="
+  text-align:center;
+  margin:20px auto 0;
+  color:#5944c8;
+  font-family:Arial,sans-serif;
+  font-size:14px;">
+  👀 Chargement du nombre de visites...
+</div>
+
+<script>
+(async function () {
+  const compteur = document.getElementById("visit-counter");
+
+  try {
+    const response = await fetch(
+      "https://api.counterapi.dev/v1/quiz-maelyne1602/visites/up"
+    );
+
+    if (!response.ok) throw new Error("Compteur indisponible");
+
+    const data = await response.json();
+    const nombre = data.count ?? data.value;
+
+    if (nombre !== undefined) {
+      compteur.textContent = "👀 Visites du quiz : " + nombre;
+    } else {
+      compteur.textContent = "👀 Statistiques momentanément indisponibles";
+    }
+  } catch (error) {
+    compteur.textContent = "👀 Compteur momentanément indisponible";
+    console.error("Erreur du compteur :", error);
+  }
+})();
+</script>
 </body>
 </html>
