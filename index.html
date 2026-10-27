@@ -236,34 +236,14 @@ if("speechSynthesis" in window){
   speechSynthesis.onvoiceschanged=()=>{};
 }
 render();
+
 </script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MBJ6P8LQ9Y"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-MBJ6P8LQ9Y');
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+ gtag('config', 'G-MBJ6P8LQ9Y');
 </script>
-
-<!-- Affichage du compteur -->
-<div id="visit-counter" style="
-  text-align: center;
-  margin: 20px auto 0;
-  color: #5944c8;
-  font-family: Arial, sans-serif;
-  font-size: 14px;">
-  👀 Statistiques du quiz disponibles dans quelques instants...
-</div>
-
-<script>
-(function () {
-  const compteur = document.getElementById("visit-counter");
-
-  compteur.textContent =
-    "👀 Le quiz est suivi par Google Analytics";
-
-  // Google Analytics collecte les visites,
-  // mais ne fournit pas ici le total des visites.
-})();
-</script></body>
+</body>
 </html>
