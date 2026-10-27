@@ -237,40 +237,33 @@ if("speechSynthesis" in window){
 }
 render();
 </script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MBJ6P8LQ9Y"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-MBJ6P8LQ9Y');
+</script>
 
-  <div id="visit-counter" style="
-  text-align:center;
-  margin:20px auto 0;
-  color:#5944c8;
-  font-family:Arial,sans-serif;
-  font-size:14px;">
-  👀 Chargement du nombre de visites...
+<!-- Affichage du compteur -->
+<div id="visit-counter" style="
+  text-align: center;
+  margin: 20px auto 0;
+  color: #5944c8;
+  font-family: Arial, sans-serif;
+  font-size: 14px;">
+  👀 Statistiques du quiz disponibles dans quelques instants...
 </div>
 
 <script>
-(async function () {
+(function () {
   const compteur = document.getElementById("visit-counter");
 
-  try {
-    const response = await fetch(
-      "https://api.counterapi.dev/v1/quiz-maelyne1602/visites/up"
-    );
+  compteur.textContent =
+    "👀 Le quiz est suivi par Google Analytics";
 
-    if (!response.ok) throw new Error("Compteur indisponible");
-
-    const data = await response.json();
-    const nombre = data.count ?? data.value;
-
-    if (nombre !== undefined) {
-      compteur.textContent = "👀 Visites du quiz : " + nombre;
-    } else {
-      compteur.textContent = "👀 Statistiques momentanément indisponibles";
-    }
-  } catch (error) {
-    compteur.textContent = "👀 Compteur momentanément indisponible";
-    console.error("Erreur du compteur :", error);
-  }
+  // Google Analytics collecte les visites,
+  // mais ne fournit pas ici le total des visites.
 })();
-</script>
-</body>
+</script></body>
 </html>
